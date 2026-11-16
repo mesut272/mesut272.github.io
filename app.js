@@ -1,4 +1,4 @@
-import {initPageDeck} from './page-deck.js?v=scroll2';
+import {initPageDeck} from './page-deck.js?v=scroll3';
 import {initAudioExperience} from './audio-ui.js?v=gesture3';
 import {initDispatch} from './dispatch-ui.js';
 import {initDiamondLab} from './diamond-ui.js';

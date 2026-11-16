@@ -1,4 +1,4 @@
-import {createWheelPager} from './wheel-pager.mjs';
+import {createWheelPager} from './wheel-pager.mjs?v=scroll3';
 import {nextPage} from './page-deck-state.mjs';
 export function initPageDeck(){
  const $=s=>document.querySelector(s),main=$('main'),pages=[];
@@ -32,7 +32,7 @@ export function initPageDeck(){
   prev.disabled=index===0;next.disabled=index===pages.length-1;count.textContent=`${String(index+1).padStart(2,'0')} / ${String(pages.length).padStart(2,'0')} · ${pages[index].dataset.label}`;
   [...menu.children].forEach((b,i)=>{b.setAttribute('aria-current',i===index?'page':'false');});
   if(updateHash){const id=pages[index].id||pages[index].querySelector('[id]')?.id;if(id)history.replaceState(null,'','#'+id);}
-  lockedUntil=performance.now()+700;wheelPager.hold(performance.now());
+  lockedUntil=performance.now()+500;wheelPager.hold(performance.now());
  };
  const turn=direction=>{if(performance.now()<lockedUntil)return;show(nextPage(current,direction,pages.length));};
  prev.addEventListener('click',()=>show(nextPage(current,-1,pages.length)));next.addEventListener('click',()=>show(nextPage(current,1,pages.length)));
@@ -58,7 +58,7 @@ export function initPageDeck(){
  main.addEventListener('touchend',e=>{
   if(touchStart===null)return;
   const gesture=touchStart,delta=gesture.y-e.changedTouches[0].clientY;touchStart=null;
-  if(Math.abs(delta)>150&&(delta>0&&gesture.bottom||delta<0&&gesture.top))turn(delta>0?1:-1);
+  if(Math.abs(delta)>90&&(delta>0&&gesture.bottom||delta<0&&gesture.top))turn(delta>0?1:-1);
  },{passive:true});
  main.addEventListener('touchcancel',()=>{touchStart=null;},{passive:true});
  const initial=pageForHash(location.hash);show(initial>=0?initial:0,false);
