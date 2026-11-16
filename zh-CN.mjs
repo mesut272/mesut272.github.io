@@ -214,7 +214,7 @@ A reply worth waiting for.|一份值得等待的回信。
 04 / THE COLLECTION|04 / 我的收藏
 Some people collect tabs.|关于足球的热爱，
 I also collect cards.|一张张收藏起来。
-A Barça supporter for 12 years, with a soft spot for football memorabilia—and quite a few pages of Mesut Özil cards.|支持巴萨 12 年，也喜欢收藏足球纪念品——尤其是这好几页的厄齐尔球星卡。
+A few pages from my Mesut Özil collection: autographs, memorabilia cards, and favorite designs.|我的厄齐尔球星卡收藏：签名卡、实物卡，还有喜欢的各种卡面。
 Flip through my binder|翻翻我的卡册
 Nine pages. Plenty of favorites.|九页卡册，满满的心头好。
 THE ÖZIL PAGES|厄齐尔收藏册

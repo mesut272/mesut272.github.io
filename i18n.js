@@ -1,5 +1,5 @@
 import {languageResources} from './language-resources.mjs';
-import {translateText} from './zh-CN.mjs?v=headings3';
+import {translateText} from './zh-CN.mjs?v=cardsnote1';
 export function initLanguages(){
  let language='en';try{language=localStorage.getItem('lexin-language')==='zh'?'zh':'en';}catch{}
  const records=new WeakMap(),attributes=new WeakMap();
