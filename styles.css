@@ -64,3 +64,39 @@ body.has-page-deck{height:100dvh;overflow:hidden}.has-page-deck .site-header{hei
  .page-dispatch #dispatchMap{max-height:200px}.page-dispatch .rideshare-project{gap:15px}.page-dispatch .rideshare-copy h3{font-size:26px;margin-bottom:10px}.page-dispatch .rideshare-copy>p{font-size:12px}
  .deck-detail-dialog .diamond-project{grid-template-columns:1fr}.deck-detail-dialog{padding:20px}
 }
+/* Native scrolling owns momentum and reverse gestures; sections snap naturally. */
+.has-page-deck.native-page-deck main{position:fixed;inset:78px 0 0;height:calc(100dvh - 78px);overflow-x:hidden;overflow-y:auto;scroll-snap-type:y mandatory;overscroll-behavior-y:contain;scrollbar-width:none;scroll-behavior:smooth;touch-action:pan-y}
+.native-page-deck main::-webkit-scrollbar{display:none}
+.native-page-deck .deck-page{position:relative;inset:auto;height:100%;min-height:100%;width:100%;overflow:hidden;scroll-snap-align:start;scroll-snap-stop:always;touch-action:pan-y}
+.native-page-deck .deck-page.is-current{animation:none}
+.professional-skills{margin-top:24px;padding-top:18px;border-top:1px solid var(--line)}
+.professional-skills>div{margin-top:12px}.professional-skills h4{font-size:12px;margin-bottom:4px}.professional-skills p{font-size:12px;line-height:1.65;color:var(--muted)}
+.page-about .about-section{gap:65px;grid-template-columns:1fr 1.2fr}.page-about h2{font-size:44px}.page-about .about-note{margin-top:16px}.page-about .large-copy{font-size:18px}
+.letters-and-cards{display:grid;grid-template-columns:1.55fr .8fr;gap:32px;align-items:center}
+.page-collection .collection-heading{margin:0 0 18px}.page-collection .collection-heading h3{font-size:28px}.page-collection .collection-heading p{font-size:11px}
+.page-collection .autograph-grid{grid-template-columns:repeat(2,1fr);gap:14px}.page-collection .autograph-image{height:140px}.page-collection .autograph-card strong{font-size:12px}
+.page-collection .cards-section{display:flex;flex-direction:column;gap:20px;align-items:flex-start;border:0;padding:0;margin:0;min-height:0}
+.page-collection .cards-section h3{font-size:27px}.page-collection .cards-section p{font-size:12px}.page-collection .cards-section .category-label{margin-bottom:12px}.page-collection .cards-section img{max-height:230px;object-fit:contain}
+.combined-music{display:grid;grid-template-columns:1.05fr 1fr;gap:25px;align-items:stretch}
+.page-music .concert-card{display:flex;flex-direction:column;width:100%;height:100%;max-width:none}
+.page-music .concert-hero{flex:1;height:390px;min-height:300px}.page-music .concert-hero img{height:100%;width:100%;object-fit:contain}
+.page-music .concert-keepsakes{flex-direction:row;gap:12px;padding:13px;justify-content:center}.page-music .keepsake{width:65px}.page-music .keepsake img{width:65px;height:65px}.page-music .concert-keepsakes p{font-size:10px;max-width:140px}
+.page-music .eason-card{padding:20px 24px;max-width:none}.page-music .eason-card h4{font-size:29px}.page-music .eason-card h4 br{display:none}.page-music .song-now{grid-template-columns:80px 1fr}.page-music .song-now>img{height:80px;width:80px}.page-music .month-buttons{gap:5px}.page-music .month-buttons button{font-size:10px;padding:6px 9px}
+@media(max-width:760px){
+ .has-page-deck.native-page-deck main{inset:65px 0 0;height:calc(100dvh - 65px)}
+ .page-about .about-section{grid-template-columns:1fr;gap:18px}.page-about h2{font-size:32px}.professional-skills{margin-top:12px;padding-top:10px}.professional-skills>div{margin-top:7px}.professional-skills p{font-size:11px}.page-about .about-note{display:none}
+ .letters-and-cards{grid-template-columns:1fr;gap:18px}.page-collection .collection-heading h3{font-size:25px}.page-collection .autograph-image{height:100px}.page-collection .cards-section{display:grid;grid-template-columns:1.3fr 1fr;align-items:center;gap:12px}.page-collection .cards-section h3{font-size:23px}.page-collection .cards-section img{max-height:160px}
+ .combined-music{grid-template-columns:1fr;gap:14px}.page-music .concert-card{display:grid;grid-template-columns:1.3fr 1fr;height:230px}.page-music .concert-hero{height:230px;min-height:0}.page-music .concert-keepsakes{flex-direction:column;padding:8px;gap:7px}.page-music .concert-keepsakes p{font-size:9px}.page-music .keepsake img{height:45px;width:45px}.page-music .keepsake{width:45px}.page-music .eason-card{padding:16px}.page-music .eason-card h4{font-size:25px}
+}
+.page-music .concert-card{height:566px;min-height:0}
+.page-music .concert-hero{flex:0 0 410px;height:410px;min-height:0;overflow:hidden}
+.page-music .concert-hero>img{position:absolute;inset:0;height:100%;width:100%;object-fit:contain}
+.page-music .concert-keepsakes{flex:1;min-height:0}
+.page-collection .collection-heading h3{font-size:25px}.page-collection .autograph-image{height:120px}
+@media(max-width:760px){.page-music .concert-card{height:230px}.page-music .concert-hero{height:230px;flex:none}.page-collection .autograph-image{height:100px}}
+.native-page-deck .deck-page{overscroll-behavior:auto;outline:none}
+.page-collection .binder-preview{height:240px;min-height:0;width:100%}
+.page-collection .autograph-image{height:160px;background:var(--sand)}
+.page-collection .autograph-image img{width:100%;height:100%;object-fit:contain}
+.page-collection .collection-heading{display:block}.page-collection .collection-heading p{margin-top:10px}
+@media(max-width:760px){.page-collection .binder-preview{height:160px}.page-collection .autograph-image{height:100px}}
