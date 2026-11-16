@@ -1,3 +1,4 @@
+import {installAutoplayRetry} from './autoplay-retry.mjs';
 import {getPreviewWindow} from './preview-window.mjs';
 import {createSoundtrack} from './soundtrack.mjs';
 import {easonTracks} from './eason-tracks.mjs';
@@ -9,7 +10,7 @@ export function initAudioExperience(){
  const cancelKey=()=>{clearTimeout(keyTimer);stopActiveKey();stopActiveKey=()=>{};};
  const rememberOff=off=>{bgmExplicitlyOff=off;};
  const player=createSoundtrack(bgm,state=>{
-  const playing=state==='playing';$('#soundtrackLabel').textContent=playing?'Pause piano BGM':state==='loading'?'Starting piano…':state==='error'?'Audio unavailable':'Play piano BGM';
+  const playing=state==='playing';$('#soundtrackLabel').textContent=playing?'Pause piano BGM':state==='loading'?'Starting piano…':state==='error'?'Audio unavailable':state==='blocked'?'Click anywhere for piano':'Play piano BGM';
   $('#soundtrackIcon').textContent=playing?'Ⅱ':'▶';$('#soundtrackToggle').setAttribute('aria-label',playing?'Pause piano background music':'Play piano background music');$('#soundtrackToggle').setAttribute('aria-pressed',String(playing));$('.soundtrack-player').classList.toggle('is-playing',playing);
  });
  const resetPreviewUI=()=>{$('#songPlay').textContent='Play song preview ▶';$('#songPlay').setAttribute('aria-pressed','false');};
@@ -47,6 +48,7 @@ export function initAudioExperience(){
  const watchStall=()=>{if(!previewActive)return;clearTimeout(stallTimer);stallTimer=setTimeout(()=>{if(previewActive)finishPreview('Preview interrupted. Open the full track on Apple Music.');},10000);};
  preview.addEventListener('waiting',watchStall);preview.addEventListener('stalled',watchStall);preview.addEventListener('playing',()=>clearTimeout(stallTimer));preview.addEventListener('error',()=>{if(previewActive)finishPreview('Preview unavailable. Open the full track on Apple Music.');});
  renderTrack();
+ installAutoplayRetry(document,player,()=>!bgmExplicitlyOff&&!previewActive&&!videoActive);
  if(bgmExplicitlyOff){$('#soundtrackLabel').textContent='Piano BGM paused';}else player.start();
  return {
   registerKeyStop(stop){stopActiveKey=stop;},

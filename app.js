@@ -1,5 +1,5 @@
 import {initPageDeck} from './page-deck.js';
-import {initAudioExperience} from './audio-ui.js';
+import {initAudioExperience} from './audio-ui.js?v=audio2';
 import {initDispatch} from './dispatch-ui.js';
 import {initDiamondLab} from './diamond-ui.js';
 import { getScenario } from './agent-demo.mjs';
