@@ -1,3 +1,4 @@
+import {createWheelPager} from './wheel-pager.mjs';
 import {nextPage} from './page-deck-state.mjs';
 export function initPageDeck(){
  const $=s=>document.querySelector(s),main=$('main'),pages=[];
@@ -24,28 +25,41 @@ export function initPageDeck(){
  const menu=document.createElement('nav');menu.className='deck-dots';menu.setAttribute('aria-label','Jump to a section');
  pages.forEach((page,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',page.dataset.label);b.title=page.dataset.label;b.addEventListener('click',()=>show(i));menu.append(b);});document.body.append(menu);
  let current=0,lockedUntil=0,touchStart=null;
+ const wheelPager=createWheelPager();
  const pageForHash=hash=>{let id;try{id=decodeURIComponent(hash.replace(/^#/,''));}catch{return -1;}const target=document.getElementById(id);return target?pages.findIndex(p=>p===target||p.contains(target)):-1;};
  const show=(index,updateHash=true)=>{
   index=Math.max(0,Math.min(pages.length-1,index));pages.forEach((p,i)=>{p.hidden=i!==index;p.classList.toggle('is-current',i===index);});current=index;pages[index].scrollTop=0;
   prev.disabled=index===0;next.disabled=index===pages.length-1;count.textContent=`${String(index+1).padStart(2,'0')} / ${String(pages.length).padStart(2,'0')} · ${pages[index].dataset.label}`;
   [...menu.children].forEach((b,i)=>{b.setAttribute('aria-current',i===index?'page':'false');});
   if(updateHash){const id=pages[index].id||pages[index].querySelector('[id]')?.id;if(id)history.replaceState(null,'','#'+id);}
-  lockedUntil=performance.now()+550;
+  lockedUntil=performance.now()+700;wheelPager.hold(performance.now());
  };
  const turn=direction=>{if(performance.now()<lockedUntil)return;show(nextPage(current,direction,pages.length));};
  prev.addEventListener('click',()=>show(nextPage(current,-1,pages.length)));next.addEventListener('click',()=>show(nextPage(current,1,pages.length)));
  document.addEventListener('click',event=>{const a=event.target.closest('a[href^="#"]');if(!a)return;const hash=a.getAttribute('href');const index=pageForHash(hash);if(index<0)return;event.preventDefault();show(index,false);history.replaceState(null,'',hash);});
  window.addEventListener('hashchange',()=>{const i=pageForHash(location.hash);if(i>=0)show(i,false);});
  document.addEventListener('wheel',event=>{
-  if($('dialog[open]')||event.ctrlKey||Math.abs(event.deltaY)<3)return;
-  const page=pages[current],direction=event.deltaY>0?1:-1;
+  if($('dialog[open]')||event.ctrlKey||Math.abs(event.deltaY)<=Math.abs(event.deltaX))return;
+  const page=pages[current],direction=event.deltaY>0?1:-1,now=performance.now();
+  const canScroll=node=>node.scrollHeight>node.clientHeight+2&&(direction>0?node.scrollTop+node.clientHeight<node.scrollHeight-2:node.scrollTop>2);
   let node=event.target;
-  while(node&&node!==page){if(node.scrollHeight>node.clientHeight+2&&['auto','scroll'].includes(getComputedStyle(node).overflowY)){if(direction>0&&node.scrollTop+node.clientHeight<node.scrollHeight-2||direction<0&&node.scrollTop>2)return;}node=node.parentElement;}
-  if(direction>0&&page.scrollTop+page.clientHeight<page.scrollHeight-2||direction<0&&page.scrollTop>2)return;
-  event.preventDefault();turn(direction);
+  while(node&&node!==page){if(['auto','scroll'].includes(getComputedStyle(node).overflowY)&&canScroll(node)){wheelPager.feed(event.deltaY,now,false);return;}node=node.parentElement;}
+  if(canScroll(page)){wheelPager.feed(event.deltaY,now,false);return;}
+  event.preventDefault();
+  const pixels=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?page.clientHeight:1);
+  const intent=wheelPager.feed(pixels,now);
+  if(intent)turn(intent);
  },{passive:false});
  document.addEventListener('keydown',event=>{if($('dialog[open]')||event.target.closest('input,select,textarea,button,a,video,audio,summary'))return;if(['PageDown','ArrowDown','PageUp','ArrowUp'].includes(event.key)){event.preventDefault();turn(['PageDown','ArrowDown'].includes(event.key)?1:-1);}});
- main.addEventListener('touchstart',e=>{if(e.touches.length===1)touchStart=e.touches[0].clientY;},{passive:true});
- main.addEventListener('touchend',e=>{if(touchStart===null)return;const delta=touchStart-e.changedTouches[0].clientY;touchStart=null;const p=pages[current];if(Math.abs(delta)>65&&(delta>0&&p.scrollTop+p.clientHeight>=p.scrollHeight-2||delta<0&&p.scrollTop<=2))turn(delta>0?1:-1);},{passive:true});
+ main.addEventListener('touchstart',e=>{
+  if(e.touches.length!==1||$('dialog[open]')){touchStart=null;return;}
+  const p=pages[current];touchStart={y:e.touches[0].clientY,top:p.scrollTop<=2,bottom:p.scrollTop+p.clientHeight>=p.scrollHeight-2};
+ },{passive:true});
+ main.addEventListener('touchend',e=>{
+  if(touchStart===null)return;
+  const gesture=touchStart,delta=gesture.y-e.changedTouches[0].clientY;touchStart=null;
+  if(Math.abs(delta)>150&&(delta>0&&gesture.bottom||delta<0&&gesture.top))turn(delta>0?1:-1);
+ },{passive:true});
+ main.addEventListener('touchcancel',()=>{touchStart=null;},{passive:true});
  const initial=pageForHash(location.hash);show(initial>=0?initial:0,false);
 }
