@@ -1,4 +1,4 @@
-import {installAutoplayRetry} from './autoplay-retry.mjs';
+import {installAutoplayRetry} from './autoplay-retry.mjs?v=gesture3';
 import {getPreviewWindow} from './preview-window.mjs';
 import {createSoundtrack} from './soundtrack.mjs';
 import {easonTracks} from './eason-tracks.mjs';
