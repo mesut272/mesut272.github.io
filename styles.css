@@ -192,3 +192,16 @@ body.has-page-deck{height:100dvh;overflow:hidden}.has-page-deck .site-header{hei
 .diamond-mobile-tabs{display:none}
 @media(max-width:760px){.diamond-mobile-tabs{display:flex;gap:8px;margin-bottom:8px}.diamond-mobile-tabs button{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px 14px;font-size:13px}.diamond-mobile-tabs button[aria-pressed=true]{background:var(--lavender);color:var(--purple);border-color:var(--purple)}.diamond-combined[data-panel=overview]>.deck-diamond-wrap{display:none}.diamond-combined[data-panel=demo]>.diamond-overview{display:none}.diamond-combined .overview-grid{grid-template-columns:1fr}.diamond-combined .overview-grid p{font-size:13px}}
 @media(max-width:760px){.diamond-combined .overview-grid{grid-template-columns:1fr 1fr;gap:16px 14px}.diamond-combined .overview-grid p{font-size:12px;line-height:1.65}.diamond-combined .overview-grid h4{font-size:12px;min-height:32px}.has-page-deck .site-header{padding-inline:14px;gap:7px}.has-page-deck .site-header .handwave{display:none}.has-page-deck .site-header .wordmark{font-size:25px}.has-page-deck .site-header nav{gap:8px}.has-page-deck .site-header nav a{font-size:10px;white-space:nowrap}}
+/* Shared rows keep both collection photos and their navigation aligned. */
+@media(min-width:761px){
+ .page-collection .letters-and-cards{display:grid;grid-template-columns:1fr 1fr;gap:18px 45px;align-items:start}
+ .page-collection .letters-and-cards>.replies,.page-collection .letters-and-cards>.cards-section{display:contents}
+ .page-collection .collection-heading{grid-area:1 / 1;margin:0}
+ .page-collection .cards-copy{grid-area:1 / 2}
+ .page-collection .letters-carousel{grid-area:2 / 1;padding-top:25px}
+ .page-collection .cards-carousel{grid-area:2 / 2;height:375px;padding-top:25px}
+ .page-collection .letters-carousel .autograph-image,.page-collection .cards-carousel .binder-preview{height:350px;min-height:350px}
+ .page-collection .cards-carousel .binder-preview img{height:350px;max-height:350px}
+ .page-collection .letters-carousel>.concert-arrow,.page-collection .cards-carousel>.concert-arrow{top:200px;transform:translateY(-50%)}
+}
+@media(min-width:761px){.page-collection .cards-carousel .binder-preview{margin:0}.page-collection .cards-note{margin-top:16px}}
