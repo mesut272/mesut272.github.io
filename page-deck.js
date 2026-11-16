@@ -1,3 +1,4 @@
+import {fitToScreen} from './screen-fit.mjs';
 import {createWheelPager} from './wheel-pager.mjs?v=scroll3';
 import {nextPage} from './page-deck-state.mjs';
 export function initPageDeck(){
@@ -6,7 +7,7 @@ export function initPageDeck(){
   const page=document.createElement('section');page.className=`deck-page page-${key}`;page.hidden=true;page.dataset.label=label;page.setAttribute('aria-label',label);page.tabIndex=-1;if(anchor)page.id=anchor;
   const body=document.createElement('div');body.className='deck-content';
   if(key!=='home'&&key!=='about'&&key!=='contact'){const tag=document.createElement('div');tag.className='deck-eyebrow wrap';tag.textContent=label.toUpperCase();body.append(tag);}
-  nodes.filter(Boolean).forEach(node=>body.append(node));page.append(body);pages.push(page);return page;
+  nodes.filter(Boolean).forEach(node=>body.append(node));const stage=document.createElement('div');stage.className='deck-stage';stage.append(body);page.append(stage);pages.push(page);return page;
  };
  const home=$('#home'),about=$('#about'),contact=$('#contact'),work=$('#work'),life=$('#life');
  const diamondIntro=$('.diamond-project'),lab=$('.diamond-lab'),notes=$('.engineering-notes'),ride=$('.rideshare-project');
@@ -24,11 +25,31 @@ export function initPageDeck(){
  const prev=document.createElement('button'),next=document.createElement('button'),count=document.createElement('span');prev.textContent='↑';next.textContent='↓';prev.setAttribute('aria-label','Previous section');next.setAttribute('aria-label','Next section');count.className='deck-count';controls.append(prev,count,next);document.body.append(controls);
  const menu=document.createElement('nav');menu.className='deck-dots';menu.setAttribute('aria-label','Jump to a section');
  pages.forEach((page,i)=>{const b=document.createElement('button');b.setAttribute('aria-label',page.dataset.label);b.title=page.dataset.label;b.addEventListener('click',()=>show(i));menu.append(b);});document.body.append(menu);
+ // Long project details are read in a dialog, never by growing a section.
+ document.querySelectorAll('.project-background,.rideshare-copy details').forEach(details=>{
+  const title=details.querySelector('summary').textContent,button=document.createElement('button');button.className='deck-detail-link text-link';button.textContent=title;
+  const dialog=document.createElement('dialog');dialog.className='deck-detail-dialog';dialog.setAttribute('aria-label',title);
+  const close=document.createElement('button');close.className='deck-detail-close';close.textContent='Close ×';close.addEventListener('click',()=>dialog.close());
+  const heading=document.createElement('h3');heading.textContent=title;dialog.append(close,heading);
+  [...details.children].filter(node=>node.tagName!=='SUMMARY').forEach(node=>dialog.append(node));
+  details.replaceWith(button);document.body.append(dialog);button.addEventListener('click',()=>dialog.showModal());
+  dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
+ });
  let current=0,lockedUntil=0,touchStart=null;
+ const fitCurrent=()=>{
+  const page=pages[current],stage=page.querySelector('.deck-stage'),body=page.querySelector('.deck-content');
+  const fit=fitToScreen(body.scrollHeight,stage.clientHeight);
+  body.style.transform=`scale(${fit.scale})`;body.style.top=`${fit.top}px`;page.dataset.fitScale=fit.scale.toFixed(3);
+ };
+ const observer=new ResizeObserver(()=>fitCurrent());
+ pages.forEach(page=>observer.observe(page.querySelector('.deck-content')));
+ window.addEventListener('resize',fitCurrent);
+ document.fonts?.ready.then(fitCurrent);
+
  const wheelPager=createWheelPager();
  const pageForHash=hash=>{let id;try{id=decodeURIComponent(hash.replace(/^#/,''));}catch{return -1;}const target=document.getElementById(id);return target?pages.findIndex(p=>p===target||p.contains(target)):-1;};
  const show=(index,updateHash=true)=>{
-  index=Math.max(0,Math.min(pages.length-1,index));pages.forEach((p,i)=>{p.hidden=i!==index;p.classList.toggle('is-current',i===index);});current=index;pages[index].scrollTop=0;
+  index=Math.max(0,Math.min(pages.length-1,index));pages.forEach((p,i)=>{p.hidden=i!==index;p.classList.toggle('is-current',i===index);});current=index;pages[index].scrollTop=0;fitCurrent();
   prev.disabled=index===0;next.disabled=index===pages.length-1;count.textContent=`${String(index+1).padStart(2,'0')} / ${String(pages.length).padStart(2,'0')} · ${pages[index].dataset.label}`;
   [...menu.children].forEach((b,i)=>{b.setAttribute('aria-current',i===index?'page':'false');});
   if(updateHash){const id=pages[index].id||pages[index].querySelector('[id]')?.id;if(id)history.replaceState(null,'','#'+id);}
@@ -44,7 +65,7 @@ export function initPageDeck(){
   const canScroll=node=>node.scrollHeight>node.clientHeight+2&&(direction>0?node.scrollTop+node.clientHeight<node.scrollHeight-2:node.scrollTop>2);
   let node=event.target;
   while(node&&node!==page){if(['auto','scroll'].includes(getComputedStyle(node).overflowY)&&canScroll(node)){wheelPager.feed(event.deltaY,now,false);return;}node=node.parentElement;}
-  if(canScroll(page)){wheelPager.feed(event.deltaY,now,false);return;}
+
   event.preventDefault();
   const pixels=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?page.clientHeight:1);
   const intent=wheelPager.feed(pixels,now);
