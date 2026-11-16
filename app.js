@@ -1,3 +1,5 @@
+import {initLanguages} from './i18n.js';
+import {initConcertCarousel} from './concert-carousel.mjs';
 import {initPageDeck} from './page-deck.js?v=native1';
 import {initAudioExperience} from './audio-ui.js?v=gesture3';
 import {initDispatch} from './dispatch-ui.js';
@@ -194,3 +196,6 @@ initDiamondLab();
 initDispatch();
 
 initPageDeck();
+
+initConcertCarousel();
+initLanguages();
