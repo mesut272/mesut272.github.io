@@ -1,5 +1,5 @@
 import {initLettersCarousel} from './letters-carousel.mjs';
-import {initHomeGuide} from './home-guide.mjs';
+import {initHomeGuide} from './home-guide.mjs?v=perch2';
 import {initLanguages} from './i18n.js?v=copy2';
 import {initConcertCarousel} from './concert-carousel.mjs';
 import {initPageDeck} from './page-deck.js?v=native1';
