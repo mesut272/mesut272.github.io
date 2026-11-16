@@ -1,4 +1,4 @@
-import {translateText} from './zh-CN.mjs?v=guide1';
+import {translateText} from './zh-CN.mjs?v=copy2';
 export function initLanguages(){
  let language='en';try{language=localStorage.getItem('lexin-language')==='zh'?'zh':'en';}catch{}
  const records=new WeakMap(),attributes=new WeakMap();

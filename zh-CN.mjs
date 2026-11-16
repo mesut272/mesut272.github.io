@@ -172,8 +172,8 @@ CHOPIN / HEROIC POLONAISE, OP. 53|肖邦 / 英雄波兰舞曲，Op. 53
 Performed by Lexin · 6:02|易乐欣演奏 · 6:02
 A few keys, just for fun →|试着弹几个音 →
 01 / EIGHTY-EIGHT KEYS|01 / 八十八个琴键
-Before I wrote code,|写代码之前，
-I played Chopin.|我弹肖邦。
+Before I wrote code,|从五岁开始，
+I played Chopin.|钢琴陪我长大。
 I started piano at five and continued through high school. Years of practice, competitions, and learning to get a difficult passage just right.|我从五岁开始学钢琴，一直弹到高中。练习、比赛，还有把一个难段落慢慢磨好的过程，陪伴了我的成长。
 1st in Anhui|安徽省第一名
 Multiple amateur-category wins in Pearl River Cup and other piano competitions|多次获得珠江杯及其他钢琴比赛安徽地区业余组第一名
@@ -187,8 +187,8 @@ The soundtrack on this page is me playing Chopin’s|网页的背景音乐，是
 Heroic Polonaise, Op. 53.|《英雄波兰舞曲》，Op. 53。
 See the person behind the piano ↗|看看演奏视频 ↗
 02 / AT THE TABLE|02 / 牌桌边
-Good decisions.|做好的决策，
-Imperfect information.|面对不完整的信息。
+Good decisions.|牌局有输赢，
+Imperfect information.|决策有学问。
 Poker is my biggest hobby. I’ve played hundreds of sessions, and I love the mix of probability, patience, and making decisions without knowing the whole story.|德州扑克是我最大的爱好。我打过数百场，喜欢概率、耐心，以及在信息不完整时做出判断的过程。
 A local tournament win|一次本地锦标赛冠军
 Aces Poker · Seattle area|Aces Poker · 西雅图地区
@@ -212,8 +212,8 @@ The best detail? “To Lexin!”|最特别的细节：“To Lexin!”
 Neymar Jr.|内马尔
 A reply worth waiting for.|一份值得等待的回信。
 04 / THE COLLECTION|04 / 我的收藏
-Some people collect tabs.|有人收藏浏览器标签，
-I also collect cards.|我还收藏球星卡。
+Some people collect tabs.|关于足球的热爱，
+I also collect cards.|一张张收藏起来。
 A Barça supporter for 12 years, with a soft spot for football memorabilia—and quite a few pages of Mesut Özil cards.|支持巴萨 12 年，也喜欢收藏足球纪念品——尤其是这好几页的厄齐尔球星卡。
 Flip through my binder|翻翻我的卡册
 Nine pages. Plenty of favorites.|九页卡册，满满的心头好。
@@ -254,9 +254,9 @@ My 2025 listening report ↗|我的 2025 听歌报告 ↗
 A signed album, too.|还有一张签名专辑。
 A favorite on my shelf ↗|书架上的心头好 ↗
 04 / WHAT’S NEXT?|04 / 接下来
-Let’s build|一起做点
-something|真正
-useful.|有用的事。
+Let’s build|期待与你
+something|一起把想法
+useful.|变成现实。
 I’m looking for 2027 full-time opportunities in software engineering,|我正在寻找 2027 年的软件工程、
 AI applications, and agent systems. Open to relocating.|AI 应用及智能体方向全职机会，工作地点灵活。
 Résumé ↗|英文简历 ↗
@@ -427,3 +427,5 @@ Object.assign(zh,{
 });
 
 Object.assign(zh,{'Pick a path. I’ll bring the piano.':'选一条路，我来弹琴。','Follow little Lexin to explore':'跟着小乐欣，开始探索'});
+
+Object.assign(zh,{'Previous signed photo':'上一张签名照','Next signed photo':'下一张签名照'});

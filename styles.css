@@ -130,3 +130,17 @@ body.has-page-deck{height:100dvh;overflow:hidden}.has-page-deck .site-header{hei
 @keyframes guide-note{0%,100%{opacity:.6;transform:translateY(0)}50%{opacity:1;transform:translateY(-4px)}}
 @media(max-width:760px){.page-home .home-paths{margin-top:65px;gap:12px}.home-guide{width:120px;height:55px;transform:translateY(17px);transform-origin:bottom center}.home-guide svg{width:120px;height:55px}.guide-speech{font-size:10px;bottom:57px;padding:6px 8px}.home-guide:hover{transform:translateY(14px)}.home-path.guide-choice{background:var(--lavender)}}
 @media(prefers-reduced-motion:reduce){.home-guide{transition:none}.guide-eyes,.guide-note{animation:none}}
+/* One generously sized reply at a time, alongside the football card binder. */
+.letters-carousel{position:relative;width:100%;padding-top:25px}
+.page-collection .letters-carousel .autograph-grid{display:block}
+.page-collection .letters-carousel .autograph-card{display:block;width:100%;text-align:center}
+.page-collection .letters-carousel .autograph-card[hidden]{display:none!important}
+.page-collection .letters-carousel .autograph-image{height:350px;width:100%;margin:0 auto;background:transparent}
+.page-collection .letters-carousel .autograph-image img{width:100%;height:100%;object-fit:contain;transform:none}
+.page-collection .letters-carousel .autograph-name{font-size:22px!important;display:flex;justify-content:center;gap:16px;margin-top:14px}
+.page-collection .letters-carousel .autograph-card small{font-size:14px;display:block;margin-top:6px}
+.letters-prev{left:8px}.letters-next{right:8px}
+.letters-count{position:absolute;right:7px;top:0;color:var(--muted);font-size:12px;letter-spacing:.1em}
+.page-collection .letters-and-cards{grid-template-columns:1.4fr 1fr;gap:45px}
+.page-collection .collection-heading p{font-size:13px;line-height:1.6}
+@media(max-width:760px){.page-collection .letters-and-cards{grid-template-columns:1fr;gap:15px}.page-collection .letters-carousel .autograph-image{height:260px}.page-collection .letters-carousel .autograph-name{font-size:19px!important}.page-collection .letters-carousel .autograph-card small{font-size:13px}.page-collection .collection-heading p{font-size:12px}}
