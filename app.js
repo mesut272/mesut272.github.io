@@ -1,4 +1,5 @@
-import {initLanguages} from './i18n.js';
+import {initHomeGuide} from './home-guide.mjs';
+import {initLanguages} from './i18n.js?v=guide1';
 import {initConcertCarousel} from './concert-carousel.mjs';
 import {initPageDeck} from './page-deck.js?v=native1';
 import {initAudioExperience} from './audio-ui.js?v=gesture3';
@@ -198,4 +199,5 @@ initDispatch();
 initPageDeck();
 
 initConcertCarousel();
+initHomeGuide();
 initLanguages();

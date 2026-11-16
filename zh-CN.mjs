@@ -425,3 +425,5 @@ Object.assign(zh,{
  'The project allows at most one revision before escalation, preventing an endless generator/reviewer loop.':'项目最多允许修改一次，之后升级给人工，避免生成与审核无限循环。',
  'REQUEST RECEIVED':'已接收需求','INVENTORY CHECKED':'已检查库存','RECOMMENDATION READY':'推荐已就绪','CONTEXT UPDATED':'已更新上下文','PAYMENT EVIDENCE RECEIVED':'已收到付款凭证','ADMIN REVIEW':'管理审核','PENDING HUMAN REVIEW':'等待人工核验','REVIEW REQUIRED':'需要审核','REVIEW FAILED':'审核未通过','HUMAN HANDOFF':'已转交人工'
 });
+
+Object.assign(zh,{'Pick a path. I’ll bring the piano.':'选一条路，我来弹琴。','Follow little Lexin to explore':'跟着小乐欣，开始探索'});
