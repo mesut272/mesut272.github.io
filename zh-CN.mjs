@@ -31,9 +31,9 @@ Listen · Play · Open the collection|听一听 · 玩一玩 · 看看收藏
 SOFTWARE ENGINEER · AI APPLICATIONS & AGENTS|软件工程师 · AI 应用与智能体
 Email ↗|邮件 ↗
 01 / EXPERIENCE & BACKGROUND|01 / 经历与背景
-Curiosity is|好奇心，
-the|是贯穿一切的
-throughline.|那根线。
+Curiosity is|用数学理解问题，
+the|用代码
+throughline.|实现想法。
 Across code, music & everything else.|从代码，到音乐，再到生活。
 TECHNICAL SKILLS|专业技能
 Language|编程语言
@@ -172,8 +172,8 @@ CHOPIN / HEROIC POLONAISE, OP. 53|肖邦 / 英雄波兰舞曲，Op. 53
 Performed by Lexin · 6:02|易乐欣演奏 · 6:02
 A few keys, just for fun →|试着弹几个音 →
 01 / EIGHTY-EIGHT KEYS|01 / 八十八个琴键
-Before I wrote code,|指尖落下，
-I played Chopin.|岁月有声。
+Before I wrote code,|那些与琴键相伴的
+I played Chopin.|年少时光。
 I started piano at five and continued through high school. Years of practice, competitions, and learning to get a difficult passage just right.|我从五岁开始学钢琴，一直弹到高中。练习、比赛，还有把一个难段落慢慢磨好的过程，陪伴了我的成长。
 1st in Anhui|安徽省第一名
 Multiple amateur-category wins in Pearl River Cup and other piano competitions|多次获得珠江杯及其他钢琴比赛安徽地区业余组第一名
