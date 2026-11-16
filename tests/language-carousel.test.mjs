@@ -7,6 +7,6 @@ test('dynamic agent and dispatch results translate while preserving their number
 test('English and surrounding whitespace are preserved',()=>{assert.equal(translateText('  Experience  ','en'),'  Experience  ');assert.equal(translateText('  Experience  ','zh'),'  经历与技能  ');});
 test('carousel moves both ways and wraps at either end',()=>{assert.equal(carouselIndex(0,1,4),1);assert.equal(carouselIndex(0,-1,4),3);assert.equal(carouselIndex(3,1,4),0);});
 test('revised Chinese headings read naturally without changing English copy',()=>{
- const pairs=[['Before I wrote code,','从五岁开始，'],['I played Chopin.','钢琴陪我长大。'],['Good decisions.','牌局有输赢，'],['Imperfect information.','决策有学问。'],['Some people collect tabs.','关于足球的热爱，'],['I also collect cards.','一张张收藏起来。'],['Let’s build','期待与你'],['something','一起把想法'],['useful.','变成现实。']];
+ const pairs=[['Before I wrote code,','指尖落下，'],['I played Chopin.','岁月有声。'],['Good decisions.','牌局有输赢，'],['Imperfect information.','决策有学问。'],['Some people collect tabs.','关于足球的热爱，'],['I also collect cards.','一张张收藏起来。'],['Let’s build','期待与你'],['something','一起把想法'],['useful.','变成现实。']];
  for(const [en,cn] of pairs){assert.equal(translateText(en,'zh'),cn);assert.equal(translateText(en,'en'),en);}
 });

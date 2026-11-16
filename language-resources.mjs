@@ -1,0 +1,1 @@
+export function languageResources(language){return language==='zh'?{resume:'assets/Lexin-Yi-Resume-ZH.pdf',email:'1187304321@qq.com'}:{resume:'assets/Lexin-Yi-Resume.pdf',email:'yi.l@northeastern.edu'};}

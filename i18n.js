@@ -1,4 +1,5 @@
-import {translateText} from './zh-CN.mjs?v=copy2';
+import {languageResources} from './language-resources.mjs';
+import {translateText} from './zh-CN.mjs?v=portfolio9';
 export function initLanguages(){
  let language='en';try{language=localStorage.getItem('lexin-language')==='zh'?'zh':'en';}catch{}
  const records=new WeakMap(),attributes=new WeakMap();
@@ -27,6 +28,9 @@ export function initLanguages(){
   buttons.forEach((button,i)=>button.setAttribute('aria-pressed',String(['en','zh'][i]===code)));
   try{localStorage.setItem('lexin-language',code);}catch{}
   apply();
+  const resources=languageResources(code);
+  document.querySelectorAll('a[href^="mailto:"]').forEach(link=>link.href=`mailto:${resources.email}`);
+  document.querySelectorAll('a[href*="Lexin-Yi-Resume"]').forEach(link=>link.href=resources.resume);
  };
  let scheduled=false;
  const observer=new MutationObserver(()=>{if(scheduled)return;scheduled=true;requestAnimationFrame(()=>{scheduled=false;apply();});});

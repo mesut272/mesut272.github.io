@@ -10,13 +10,14 @@ export function initAudioExperience(){
  const cancelKey=()=>{clearTimeout(keyTimer);stopActiveKey();stopActiveKey=()=>{};};
  const rememberOff=off=>{bgmExplicitlyOff=off;};
  const player=createSoundtrack(bgm,state=>{
-  const playing=state==='playing';$('#soundtrackLabel').textContent=playing?'Pause piano BGM':state==='loading'?'Starting piano…':state==='error'?'Audio unavailable':state==='blocked'?'Click anywhere for piano':'Play piano BGM';
+  const playing=state==='playing';const active=playing||state==='loading';$('#soundtrackLabel').textContent='Heroic Polonaise, Op. 53';$('#soundtrackPause').textContent=active?'Pause':'Play';$('#soundtrackPause').setAttribute('aria-label',active?'Pause piano background music':'Play piano background music');$('#soundtrackPause').title=active?'Pause':'Play';
   $('#soundtrackIcon').textContent=playing?'Ⅱ':'▶';$('#soundtrackToggle').setAttribute('aria-label',playing?'Pause piano background music':'Play piano background music');$('#soundtrackToggle').setAttribute('aria-pressed',String(playing));$('.soundtrack-player').classList.toggle('is-playing',playing);
  });
  const resetPreviewUI=()=>{$('#songPlay').textContent='Play song preview ▶';$('#songPlay').setAttribute('aria-pressed','false');};
  const stopPreview=(resume=true)=>{previewToken++;previewActive=false;clearTimeout(stallTimer);clearTimeout(stopTimer);stopTimer=null;preview.pause();resetPreviewUI();if(resume&&!videoActive)player.resumeAfterVideo();};
- $('#soundtrackToggle').addEventListener('click',()=>{cancelKey();if(player.state==='playing'||player.state==='loading'){rememberOff(true);player.pause();}else{rememberOff(false);stopPreview(false);const v=document.querySelector('dialog video');if(v&&!v.paused)v.pause();player.start();}});
- $('#soundtrackPause').addEventListener('click',()=>{cancelKey();rememberOff(true);player.pause();$('#soundtrackLabel').textContent='Piano BGM paused';});
+ const toggleSoundtrack=()=>{cancelKey();if(player.state==='playing'||player.state==='loading'){rememberOff(true);player.pause();}else{rememberOff(false);stopPreview(false);const video=document.querySelector('dialog video');if(video&&!video.paused)video.pause();player.start();}};
+ $('#soundtrackToggle').addEventListener('click',toggleSoundtrack);
+ $('#soundtrackPause').addEventListener('click',toggleSoundtrack);
  $('#soundtrackVolume').addEventListener('input',e=>{bgm.volume=Number(e.target.value);});
  document.querySelectorAll('[data-performance]').forEach(button=>button.addEventListener('click',async()=>{
   cancelKey();stopPreview(false);rememberOff(false);if(player.state!=='playing')await player.start();
@@ -49,7 +50,7 @@ export function initAudioExperience(){
  preview.addEventListener('waiting',watchStall);preview.addEventListener('stalled',watchStall);preview.addEventListener('playing',()=>clearTimeout(stallTimer));preview.addEventListener('error',()=>{if(previewActive)finishPreview('Preview unavailable. Open the full track on Apple Music.');});
  renderTrack();
  installAutoplayRetry(document,player,()=>!bgmExplicitlyOff&&!previewActive&&!videoActive);
- if(bgmExplicitlyOff){$('#soundtrackLabel').textContent='Piano BGM paused';}else player.start();
+ player.start();
  return {
   registerKeyStop(stop){stopActiveKey=stop;},
   playKey(){

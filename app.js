@@ -1,9 +1,10 @@
+import {initCardsCarousel} from './cards-carousel.mjs';
 import {initLettersCarousel} from './letters-carousel.mjs';
 import {initHomeGuide} from './home-guide.mjs?v=perch2';
-import {initLanguages} from './i18n.js?v=copy2';
+import {initLanguages} from './i18n.js?v=portfolio9';
 import {initConcertCarousel} from './concert-carousel.mjs';
-import {initPageDeck} from './page-deck.js?v=native1';
-import {initAudioExperience} from './audio-ui.js?v=gesture3';
+import {initPageDeck} from './page-deck.js?v=portfolio9';
+import {initAudioExperience} from './audio-ui.js?v=portfolio9';
 import {initDispatch} from './dispatch-ui.js';
 import {initDiamondLab} from './diamond-ui.js';
 import { getScenario } from './agent-demo.mjs';
@@ -83,7 +84,7 @@ const galleries = {
  listening:{category:'On repeat · 2025',items:[{src:'listening.jpg',title:'Twelve months of Eason Chan',caption:'My 2025 listening report: Eason Chan was my most-listened artist in every single month.',alt:'2025 listening report showing Eason Chan as favorite artist for all twelve months'}]}
 };
 const media = {
- football:{src:'football.mp4',poster:'football-poster.jpg',title:'One last run. One more chance.',category:'High school · Eight-a-side semifinal',caption:'We were 1–2 down in the last minute. I dribbled past six players and assisted the equalizer. We went on to win the penalty shootout, then the final, and became champions.'},
+ football:{src:'football.mp4',poster:'football-cover.jpg',title:'One last run. One more chance.',category:'High school · Eight-a-side semifinal',caption:'We were 1–2 down in the last minute. I dribbled past six players and assisted the equalizer. We went on to win the penalty shootout, then the final, and became champions.'},
  piano:{src:'piano.mp4',poster:'piano-poster.jpg',title:'Chopin · Heroic Polonaise, Op. 53',category:'At the piano',caption:'Performed by Lexin Yi. Piano has been part of my life since age five. This is my own recording.'},
  rideshare:{src:'rideshare.mp4',poster:'rideshare-poster.jpg',title:'AI-Assisted Dispatch Simulator',category:'Engineering project · Full recording',caption:'A 27-second recording of the original Chinese-language interface: submit an order, inspect the queue, and ask the assistant about a driver’s live state. The dispatch engine, cache, lock and index patterns run as a simulation.'}
 };
@@ -161,12 +162,6 @@ dialog.addEventListener('keydown', event => {
  if(event.key === 'ArrowLeft' && activeGallery) { event.preventDefault(); changeImage(-1); }
 });
 
-$('#winningHand').addEventListener('click', () => {
- const open = $('#handReveal').hidden;
- $('#handReveal').hidden = !open;
- $('#winningHand').setAttribute('aria-expanded',String(open));
- $('#winningHand').firstChild.textContent = open ? 'The hand I’ll remember ' : 'Reveal my winning hand ';
-});
 let audio;
 $$('[data-note]').forEach(button => button.addEventListener('click', () => {
  audioExperience.playKey();
@@ -201,5 +196,6 @@ initPageDeck();
 
 initConcertCarousel();
 initLettersCarousel();
+initCardsCarousel();
 initHomeGuide();
 initLanguages();

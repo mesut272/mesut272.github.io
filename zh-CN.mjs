@@ -13,9 +13,9 @@ that|让想法
 gets things done.|成为现实。
 Especially when AI is part of the team.|尤其擅长让 AI 参与其中。
 I turn language models into useful applications—with tools, thoughtful guardrails, and humans in the loop.|我将语言模型变成实用的应用：连接工具、明确边界，并在关键环节保留人工判断。
-View résumé ↗|查看英文简历 ↗
+View résumé ↗|查看简历 ↗
 MS in Computer Science @ Northeastern|美国东北大学 · 计算机科学硕士
-Graduating May 2027|预计 2027 年 5 月毕业
+Graduating May 2027|预计 2027 年 6 月毕业
 A little Seattle spring.|西雅图的一点春色。
 CURRENTLY BUILDING|正在探索
 Useful AI. Reliable systems.|实用的 AI，可靠的系统。
@@ -172,8 +172,8 @@ CHOPIN / HEROIC POLONAISE, OP. 53|肖邦 / 英雄波兰舞曲，Op. 53
 Performed by Lexin · 6:02|易乐欣演奏 · 6:02
 A few keys, just for fun →|试着弹几个音 →
 01 / EIGHTY-EIGHT KEYS|01 / 八十八个琴键
-Before I wrote code,|从五岁开始，
-I played Chopin.|钢琴陪我长大。
+Before I wrote code,|指尖落下，
+I played Chopin.|岁月有声。
 I started piano at five and continued through high school. Years of practice, competitions, and learning to get a difficult passage just right.|我从五岁开始学钢琴，一直弹到高中。练习、比赛，还有把一个难段落慢慢磨好的过程，陪伴了我的成长。
 1st in Anhui|安徽省第一名
 Multiple amateur-category wins in Pearl River Cup and other piano competitions|多次获得珠江杯及其他钢琴比赛安徽地区业余组第一名
@@ -259,7 +259,7 @@ something|一起把想法
 useful.|变成现实。
 I’m looking for 2027 full-time opportunities in software engineering,|我正在寻找 2027 年的软件工程、
 AI applications, and agent systems. Open to relocating.|AI 应用及智能体方向全职机会，工作地点灵活。
-Résumé ↗|英文简历 ↗
+Résumé ↗|简历 ↗
 Built with care. Best explored with curiosity.|用心构建，欢迎带着好奇探索。
 Back to top ↑|返回首页 ↑
 PIANO|钢琴
@@ -429,3 +429,36 @@ Object.assign(zh,{
 Object.assign(zh,{'Pick a path. I’ll bring the piano.':'选一条路，我来弹琴。','Follow little Lexin to explore':'跟着小乐欣，开始探索'});
 
 Object.assign(zh,{'Previous signed photo':'上一张签名照','Next signed photo':'下一张签名照'});
+
+Object.assign(zh,{'yi.l@northeastern.edu':'1187304321@qq.com','Heroic Polonaise, Op. 53':'英雄波兰舞曲，Op. 53','Played by me':'由我演奏','Play':'播放','A hand to remember':'值得记住的手牌','Semifinal. Last minute.':'半决赛最后一分钟，','1–2 down.':'1–2 落后。'});
+
+Object.assign(zh,{
+ 'Previous card page':'上一页球星卡','Next card page':'下一页球星卡',
+ 'Projects / Interactive workflow':'项目 / 交互工作流','PROJECTS / INTERACTIVE WORKFLOW':'项目 / 交互工作流',
+ 'OPENFDE / JUN — SEP 2026':'OpenFDE / 2026 年 6—9 月',
+ 'Flowan · Diamond Sales Agent':'Flowan · 微信私域钻石销售智能体',
+ 'A dual-agent sales system connecting customer conversations to controlled payment, inventory, and fulfillment workflows.':'负责从业务问题定义、工作流设计到线上反馈与可靠性验证的端到端实践，将顾客对话接入受控的付款审核、库存预占与履约流程。',
+ 'Agent architecture & safety':'智能体架构与安全体系',
+ 'Separated Sales and Admin runtimes and task handoff, integrating 12 sales skills and 4 administrative skills. A Supervisor reviews replies with approve, revise_once, or hold; high-risk cases fail closed and move to a human.':'负责 Sales / Admin 运行时职责分离与任务转交，编排 12 个销售端和 4 个管理端 Skill。候选回复进入隔离的 shadow session 做 Supervisor 审核，输出通过、修改一次或暂停三态决策；高风险或审核失败时安全停止并转人工。',
+ 'Controller & tool routing':'Controller 与工具路由',
+ 'Combined deterministic rules with LLM intent classification and relay-layer validation. Parsed 9 diamond attributes with cross-turn correction, while routing recommendations separately from large-inventory Excel queries.':'设计“确定性规则 + LLM 推理”双驱动 Tool Router，意图分类仅输出结构化 JSON，由 relay 层二次校验可信上下文后调用工具。实现 9 类钻石参数解析与跨轮纠错，并将少量推荐与大库存 Excel 查询分流，减少参数污染与工具误调用。',
+ 'Transactions & human review':'交易工作流与人机协作',
+ 'Built a payment-first workflow spanning payment OCR, administrative and owner review, inventory reservation, ERP locking, and shipping. Idempotent touchpoints and unique constraints reduce duplicate orders and overselling risks.':'构建 payment-first 状态机，串联微信付款截图 OCR、Admin 初审、老板终审、库存预占、ERP 锁货与顺丰履约。通过活动唯一约束、消息 touchpoint 幂等、库存竞争检测和 AI 回复暂停机制，降低重复建单、超卖及人机同时回复风险。',
+ 'Context engineering & evaluation':'上下文工程与评测闭环',
+ 'Established layered context management and regression checks for parameter contamination, tool misuse, and payment exceptions. Normalized duplicate inventory snapshots from approximately 690 records to 230.':'采用稳定知识、动态事实、短期会话、客户摘要和工具 trace 的分层上下文；动态价格与库存强制实时 API 获取，缺少 trace 时禁止声称“已查询”。将线上异常沉淀为多模块回归测试，形成问题发现、策略修正、回归验证闭环；库存快照由约 690 条收敛至约 230 条。',
+ 'Try the interactive workflow ↗':'动手体验交互工作流 ↗',
+ 'Read the technical case study ↗':'阅读完整技术案例 ↗'
+});
+
+Object.assign(zh,{
+ 'Separated Sales/Admin runtimes and coordinated 12 sales skills plus 4 administrative skills. Supervisor review approves, revises once, or holds a reply; high-risk cases fail closed to a human.':'分离 Sales / Admin 运行时，编排 12 个销售端和 4 个管理端 Skill。Supervisor 在隔离会话中做通过、修改一次或暂停三态审核；高风险或审核失败时安全停止并转人工。',
+ 'Built a deterministic-rule + LLM Tool Router with JSON intent classification and relay validation. Parsed 9 diamond attributes with cross-turn correction; split recommendations from bulk Excel queries.':'设计“确定性规则 + LLM 推理”路由，意图仅输出 JSON，由 relay 二次校验后调用工具。实现 9 类钻石参数解析与跨轮纠错，将少量推荐和大库存 Excel 查询分流。',
+ 'Connected payment OCR, administrative and owner review, stock reservation, ERP locking, and fulfillment. Idempotent touchpoints and unique constraints reduce duplicate orders and overselling.':'串联截图 OCR、Admin 初审、老板终审、库存预占、ERP 锁货与顺丰履约；通过活动唯一约束、消息幂等和 AI 回复暂停机制，降低重复建单、超卖及人机抢答风险。',
+ 'Layered context and regression checks cover parameter contamination, tool misuse, and payment exceptions. Deduplicated inventory snapshots from approximately 690 records to 230.':'分层管理知识、动态事实、会话、摘要及工具 trace；实时 API 获取价格与库存，缺少 trace 时禁止声称“已查询”。将线上异常沉淀为回归测试，库存快照由约 690 条整理为约 230 条。'
+});
+
+Object.assign(zh,{'Try the transaction flow.':'体验受控的交易流程'});
+
+Object.assign(zh,{'Project overview':'项目介绍','Interactive demo':'互动演示','Diamond project views':'钻石项目视图'});
+
+Object.assign(zh,{'played by me':'由我演奏'});

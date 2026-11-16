@@ -12,3 +12,6 @@ English / 简体中文 can be switched in the header without resetting project o
 
 
 The homepage includes a cap-and-glasses SVG guide that perches on the entry cards, follows hover or keyboard focus, and navigates to the chosen section on click. Trusted activation uses the existing piano playback controller and respects manual pause. Reduced-motion preferences disable decorative animation.
+
+
+Latest revision: language-specific resume downloads and contact links; a fixed-size compact diamond workflow alongside a resume-based overview; native scroll snapping with a short-gesture assist; a nine-page card carousel; visible poker hand; updated football photo cover. The piano player always shows the composition title and performer credit, with a stateful Play/Pause control. Narrow screens use in-section overview/demo tabs.

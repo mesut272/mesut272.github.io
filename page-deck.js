@@ -1,3 +1,5 @@
+import {createDiamondOverview} from './diamond-overview.mjs';
+import {installShortScrollAssist} from './scroll-assist.mjs';
 import {fitToScreen} from './screen-fit.mjs';
 export function initPageDeck(){
  const $=s=>document.querySelector(s),main=$('main'),pages=[];
@@ -11,12 +13,15 @@ export function initPageDeck(){
  const home=$('#home'),about=$('#about'),contact=$('#contact'),footer=$('.site-footer');
  const diamondBody=document.createElement('div');diamondBody.className='wrap deck-diamond-wrap';diamondBody.append($('.diamond-lab'));
  const background=document.createElement('details');background.className='project-background';const summary=document.createElement('summary');summary.textContent='Project background, architecture & results ↗';background.append(summary,$('.diamond-project'),$('.engineering-notes'));diamondBody.append(background);
+ const combinedDiamond=document.createElement('div');combinedDiamond.className='diamond-combined wrap';combinedDiamond.append(createDiamondOverview(),diamondBody);diamondBody.querySelector('.diamond-lab').id='diamond-lab-page';diamondBody.querySelector('.trace-details').open=false;const mobileTabs=document.createElement('div');mobileTabs.className='diamond-mobile-tabs';mobileTabs.setAttribute('aria-label','Diamond project views');combinedDiamond.dataset.panel='overview';
+ ['Project overview','Interactive demo'].forEach((label,i)=>{const button=document.createElement('button');button.type='button';button.textContent=label;button.setAttribute('aria-pressed',String(i===0));button.addEventListener('click',()=>{combinedDiamond.dataset.panel=i===0?'overview':'demo';[...mobileTabs.children].forEach((child,j)=>child.setAttribute('aria-pressed',String(i===j)));});mobileTabs.append(button);});combinedDiamond.prepend(mobileTabs);
+
  const rideBody=wrap($('.rideshare-project'));
  const letters=document.createElement('div');letters.className='letters-and-cards wrap';
  const replies=document.createElement('div');replies.className='replies';replies.append($('.collection-heading'),$('.autograph-grid'));letters.append(replies,$('.cards-section'));
  const music=document.createElement('div');music.className='combined-music wrap';music.append($('.concert-card'),$('.eason-card'));
  const piano=$('.piano-section'),poker=$('.poker-feature'),football=$('.football-extras');
- make('home','Home',[home]);make('about','Experience & skills',[about]);make('diamond','Projects / Diamond agent',[diamondBody],'work');make('dispatch','Projects / Dispatch playground',[rideBody],'dispatch');
+ make('home','Home',[home]);make('about','Experience & skills',[about]);make('diamond','Projects / Diamond agent',[combinedDiamond],'work');make('dispatch','Projects / Dispatch playground',[rideBody],'dispatch');
  make('piano','Off the clock / Piano',[wrap(piano)],'life');make('poker','Off the clock / Poker',[wrap(poker)],'poker');make('collection','Off the clock / Letters & cards',[letters],'letters');make('football','Off the clock / On the pitch',[wrap(football)],'football');
  const musicPage=make('music','Off the clock / Music',[music],'music');musicPage.classList.add('page-concert','page-songs');
  make('contact','Contact',[contact,footer],'contact-page');
@@ -56,5 +61,6 @@ export function initPageDeck(){
  let frame=null;
  main.addEventListener('scroll',()=>{if(frame)return;frame=requestAnimationFrame(()=>{frame=null;const index=Math.max(0,Math.min(pages.length-1,Math.round(main.scrollTop/main.clientHeight)));render(index);const hash=hashFor(index);if(hash)history.replaceState(null,'','#'+hash);});},{passive:true});
  document.addEventListener('keydown',event=>{if($('dialog[open]')||event.target.closest('input,select,textarea,button,a,video,audio,summary'))return;if(['PageDown','ArrowDown','PageUp','ArrowUp'].includes(event.key)){event.preventDefault();show(current+(['PageDown','ArrowDown'].includes(event.key)?1:-1));}});
+ installShortScrollAssist(main,()=>!$('dialog[open]'));
  fitAll();const initial=pageForHash(location.hash);show(initial>=0?initial:0,true);
 }

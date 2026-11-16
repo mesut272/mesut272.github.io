@@ -143,3 +143,52 @@ body.has-page-deck{height:100dvh;overflow:hidden}.has-page-deck .site-header{hei
 .page-collection .letters-and-cards{grid-template-columns:1.4fr 1fr;gap:45px}
 .page-collection .collection-heading p{font-size:13px;line-height:1.6}
 @media(max-width:760px){.page-collection .letters-and-cards{grid-template-columns:1fr;gap:15px}.page-collection .letters-carousel .autograph-image{height:260px}.page-collection .letters-carousel .autograph-name{font-size:19px!important}.page-collection .letters-carousel .autograph-card small{font-size:13px}.page-collection .collection-heading p{font-size:12px}}
+/* Reserve the complete interaction footprint before the first action. */
+.page-diamond .diamond-lab{height:590px;overflow:hidden}
+.page-diamond .lab-heading{height:100px;min-height:100px}
+.page-diamond .lab-columns{height:490px;min-height:490px}
+.page-diamond .diamond-shop,.page-diamond .diamond-inspector{height:490px;min-height:490px;padding:14px;overflow:hidden}
+.page-diamond .diamond-results{height:135px;min-height:135px;max-height:135px;overflow-y:auto;overscroll-behavior:contain;margin-top:10px}
+.page-diamond .diamond-results .catalog-empty{height:100%;min-height:0;display:grid;place-items:center;margin:0}
+.page-diamond .assistant-reply{height:95px;min-height:95px;max-height:95px;overflow-y:auto;overscroll-behavior:contain;margin-top:10px}
+.page-diamond .transaction-actions{margin-top:10px}
+.page-diamond .trace-details ol{height:150px;min-height:150px;max-height:150px;overflow-y:auto;overscroll-behavior:contain}
+.page-diamond .inspector-counters{margin:14px 0}
+.diamond-overview{padding-block:5px}
+.overview-heading{display:grid;grid-template-columns:1.2fr 1fr;gap:45px;align-items:end;margin-bottom:25px}
+.overview-heading .eyebrow{margin-bottom:12px}.overview-heading h2{font-size:35px}.overview-role{font-size:12px;margin-top:10px;color:var(--purple)}.overview-lead{font-size:14px;line-height:1.7}
+.overview-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px 35px}.overview-grid section{border-top:1px solid var(--line);padding-top:14px;position:relative}.overview-number{font-family:var(--serif);color:var(--purple);font-size:19px;float:left;margin-right:10px}.overview-grid h4{font-size:15px;padding-top:3px;margin-bottom:10px}.overview-grid p{font-size:13px;line-height:1.75}.overview-links{display:flex;gap:24px;align-items:center;margin-top:25px}
+.memorable-hand-title{font-size:14px;margin-top:18px;margin-bottom:10px;color:var(--purple)}.page-poker .hand-reveal{display:flex}
+.cards-carousel{position:relative;width:100%;height:330px;padding-top:24px}
+.page-collection .cards-carousel .binder-preview{height:305px;min-height:0;width:100%;transform:none!important;background:transparent;border:0;box-shadow:none;padding:0}
+.page-collection .cards-carousel .binder-preview img{position:static;width:100%;height:100%;max-height:305px;object-fit:contain;transform:none!important;border:0;box-shadow:none}
+.cards-prev{left:0}.cards-next{right:0}.cards-count{position:absolute;right:7px;top:0;font-size:12px;color:var(--muted)}
+.page-football .football-video-cover>img{object-position:center 48%}
+.soundtrack-player #soundtrackLabel{font-size:11px;max-width:190px;white-space:normal;line-height:1.4}
+@media(max-width:760px){.overview-heading{grid-template-columns:1fr;gap:12px;margin-bottom:16px}.overview-heading h2{font-size:29px}.overview-grid{gap:15px;grid-template-columns:1fr 1fr}.overview-grid p{font-size:12px}.overview-grid h4{font-size:13px}.overview-links{gap:15px;flex-wrap:wrap;margin-top:18px}.page-diamond .diamond-lab{height:1100px}.page-diamond .lab-heading{height:110px}.page-diamond .lab-columns{height:990px}.page-diamond .diamond-shop{height:510px}.page-diamond .diamond-inspector{height:480px}.cards-carousel{height:260px}.page-collection .cards-carousel .binder-preview{height:235px}.page-collection .cards-carousel .binder-preview img{max-height:235px}}
+/* Overview and a compact, stable transaction demo share the same screen. */
+.diamond-combined{display:grid;grid-template-columns:1fr 1.04fr;gap:30px;align-items:start}
+.diamond-combined>.wrap{padding:0}
+.diamond-combined .overview-heading{display:block;margin-bottom:16px}
+.diamond-combined .overview-heading h2{font-size:28px}.diamond-combined .overview-heading .eyebrow{font-size:9px}
+.diamond-combined .overview-lead{margin-top:12px;font-size:13px;line-height:1.65}
+.diamond-combined .overview-grid{grid-template-columns:1fr;gap:12px}
+.diamond-combined .overview-grid section{padding-top:10px}.diamond-combined .overview-grid h4{font-size:14px;margin-bottom:7px}.diamond-combined .overview-grid p{font-size:12px;line-height:1.65}
+.diamond-combined .overview-links{margin-top:16px}
+.page-diamond .diamond-combined .diamond-lab{height:600px;min-height:600px}
+.page-diamond .diamond-combined .lab-heading{height:80px;min-height:80px;padding:12px 16px;gap:12px}
+.page-diamond .diamond-combined .lab-heading h3{font-size:21px}.page-diamond .diamond-combined .lab-heading p{display:none}.page-diamond .diamond-combined .lab-heading .eyebrow{font-size:8px;margin-bottom:7px}
+.page-diamond .diamond-combined .lab-columns{height:520px;min-height:520px;display:block}
+.page-diamond .diamond-combined .diamond-shop{height:520px;min-height:520px;border:0;padding:14px}
+.page-diamond .diamond-combined .diamond-inspector{display:none}
+.page-diamond .diamond-combined .diamond-results{height:110px;min-height:110px;max-height:110px}
+.page-diamond .diamond-combined .assistant-reply{height:85px;min-height:85px;max-height:85px}
+.page-diamond .diamond-combined .assistant-reply p{font-size:12px;line-height:1.6}
+.page-diamond .diamond-combined .transaction-actions button{font-size:11px}
+@media(max-width:760px){.diamond-combined{grid-template-columns:1fr;gap:20px}.diamond-combined .overview-grid{grid-template-columns:1fr 1fr;gap:12px}.diamond-combined .overview-heading h2{font-size:27px}.diamond-combined .overview-grid p{font-size:12px}}
+.page-diamond .diamond-combined .diamond-lab{height:560px;min-height:560px}
+.page-diamond .diamond-combined .lab-columns{height:480px;min-height:480px}
+.page-diamond .diamond-combined .diamond-shop{height:480px;min-height:480px}
+.diamond-mobile-tabs{display:none}
+@media(max-width:760px){.diamond-mobile-tabs{display:flex;gap:8px;margin-bottom:8px}.diamond-mobile-tabs button{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:8px 14px;font-size:13px}.diamond-mobile-tabs button[aria-pressed=true]{background:var(--lavender);color:var(--purple);border-color:var(--purple)}.diamond-combined[data-panel=overview]>.deck-diamond-wrap{display:none}.diamond-combined[data-panel=demo]>.diamond-overview{display:none}.diamond-combined .overview-grid{grid-template-columns:1fr}.diamond-combined .overview-grid p{font-size:13px}}
+@media(max-width:760px){.diamond-combined .overview-grid{grid-template-columns:1fr 1fr;gap:16px 14px}.diamond-combined .overview-grid p{font-size:12px;line-height:1.65}.diamond-combined .overview-grid h4{font-size:12px;min-height:32px}.has-page-deck .site-header{padding-inline:14px;gap:7px}.has-page-deck .site-header .handwave{display:none}.has-page-deck .site-header .wordmark{font-size:25px}.has-page-deck .site-header nav{gap:8px}.has-page-deck .site-header nav a{font-size:10px;white-space:nowrap}}
