@@ -205,3 +205,21 @@ body.has-page-deck{height:100dvh;overflow:hidden}.has-page-deck .site-header{hei
  .page-collection .letters-carousel>.concert-arrow,.page-collection .cards-carousel>.concert-arrow{top:200px;transform:translateY(-50%)}
 }
 @media(min-width:761px){.page-collection .cards-carousel .binder-preview{margin:0}.page-collection .cards-note{margin-top:16px}}
+/* Collection copy stays comfortably readable in the shared-screen layout. */
+.page-collection .collection-heading h3,.page-collection .cards-copy h3{font-size:32px;line-height:1.2}
+.page-collection .collection-heading p,.page-collection .cards-copy>p{font-size:17px;line-height:1.55;margin-top:10px}
+.page-collection .cards-copy h3{margin-bottom:10px}
+.page-collection .cards-copy .text-link{font-size:16px;margin-top:12px}
+.page-collection .cards-copy .cards-note{font-size:16px;line-height:1.5;margin-top:12px}
+.page-collection .letters-carousel .autograph-name{font-size:27px!important;line-height:1.25;margin-top:12px}
+.page-collection .letters-carousel .autograph-card small{font-size:17px;line-height:1.5;margin-top:5px}
+.page-collection .letters-count,.page-collection .cards-count{font-size:15px}
+.page-collection .category-label{font-size:11px;margin-bottom:10px}
+@media(min-width:761px){
+ .page-collection .letters-and-cards{row-gap:12px}
+ .page-collection .letters-carousel .autograph-image,.page-collection .cards-carousel .binder-preview{height:320px;min-height:320px}
+ .page-collection .cards-carousel .binder-preview img{height:320px;max-height:320px}
+ .page-collection .cards-carousel{height:345px}
+ .page-collection .letters-carousel>.concert-arrow,.page-collection .cards-carousel>.concert-arrow{top:185px}
+}
+@media(max-width:760px){.page-collection .collection-heading h3,.page-collection .cards-copy h3{font-size:28px}.page-collection .collection-heading p,.page-collection .cards-copy>p{font-size:16px}.page-collection .letters-carousel .autograph-name{font-size:23px!important}.page-collection .letters-carousel .autograph-card small{font-size:16px}}
